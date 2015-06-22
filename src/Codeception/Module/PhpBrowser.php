@@ -99,7 +99,7 @@ class PhpBrowser extends InnerBrowser implements Remote, MultiSession
         if (!class_exists('GuzzleHttp\Client')) {
             throw new ModuleException($this, "Guzzle is not installed. Please install `guzzlehttp/guzzle` with composer");
         }
-        if (class_exists('GuzzleHttp\Url')) {
+        if (class_exists('GuzzleHttp\Url', false)) {
             $this->isGuzzlePsr7 = false;
             return new \Codeception\Lib\Connector\Guzzle();
         }
